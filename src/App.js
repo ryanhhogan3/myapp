@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Chart from "chart.js/auto";
+import Historicalyeilds from './components/historicalyeilds';
+import Allyeilds from './components/allyeilds';
+
+import Yeildcurve from './components/yeildcurve';
 
 function App() {
+
+  
+  
   return (
-    <div className="App">
+    <div className="Test">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>
+          Yeild Curve Data
+        </h1>
+        
+        </header>
+        <div className='Charts'>
+        <Yeildcurve />
+  </div>
+  <br />
+  <div className='Charts'>
+    <h2>Historical View of Yeilds</h2>
+    <Historicalyeilds />
+    <Allyeilds />
+  </div>
     </div>
   );
 }
