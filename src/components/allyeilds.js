@@ -118,7 +118,7 @@ const Allyeilds = () => {
      
           
       
-      <Line data={setData()} />
+      <Line data={setData()} height={'300px'}/>
       
     </div>
   );
