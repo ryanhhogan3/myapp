@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import jsonFile from './treasuryData.json'
 
 
-const Historicalyeilds = () => {
+const Historicalyields = () => {
 
   const [maturity, setmaturity] = useState("1 Mo")
 
@@ -103,4 +103,4 @@ const Historicalyeilds = () => {
   );
 };
 
-export default Historicalyeilds;
+export default Historicalyields;

@@ -1,10 +1,10 @@
 import './App.css';
 import Chart from "chart.js/auto";
-import Historicalyeilds from './components/historicalyeilds';
-import Allyeilds from './components/allyeilds';
+import Historicalyields from './components/historicalyields';
+import Allyields from './components/allyields';
 import Footer from './components/footer';
 
-import Yeildcurve from './components/yeildcurve';
+import Yieldcurve from './components/yieldcurve';
 
 function App() {
 
@@ -14,10 +14,10 @@ function App() {
     <div className="Test">
       <header className="App-header">
         <h1>
-          Yeild Curve Data
+          Yield Curve Data
         </h1>
         
-    <h2>Historical View of Yeilds</h2>
+
         </header>
         <div className='Charts'>
        
@@ -25,9 +25,9 @@ function App() {
   <br />
   <div className='Chart-container'>
   <div className='Charts'>
-    <Yeildcurve />
-    <Historicalyeilds />
-    <Allyeilds />
+    <Yieldcurve />
+    <Historicalyields />
+    <Allyields />
 
     <br />
     <br></br>

@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import jsonFile from './treasuryData.json'
 
 
-const Allyeilds = () => {
+const Allyields = () => {
 
 
 
@@ -124,4 +124,4 @@ const Allyeilds = () => {
   );
 };
 
-export default Allyeilds;
+export default Allyields;

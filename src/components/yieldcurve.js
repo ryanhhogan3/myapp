@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import jsonFile from './treasuryData.json'
 
 
-const YeildCurve = () => {
+const YieldCurve = () => {
 
   const [initdate, setDate] = useState(0)
 
@@ -92,4 +92,4 @@ const YeildCurve = () => {
 
 };
 
-export default YeildCurve;
+export default YieldCurve;
