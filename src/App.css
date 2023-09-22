@@ -38,6 +38,43 @@ html{
   width: 60%;
 }
 
+
+/* Tabel CSS */
+.Yield-Table{
+  border-collapse: collapse;
+  width: 100%;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: left;
+
+  overflow: hidden;
+  margin: auto;
+
+  margin-bottom: 50px;
+  text-align: center;
+
+}
+.Yield-Table th{
+  background-color: #282c34;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  text-transform: uppercase;
+  
+}
+
+.Yield-Table tr{
+  background-color: #282c34;
+}
+
+
+
+.Yield-Table td:hover{
+  background-color: #6e788c;
+}
+/* Table CSS end */
+
 @media screen and (max-width: 700px){
   .Charts{
     width: 90%;

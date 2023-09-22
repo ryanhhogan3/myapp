@@ -132,6 +132,24 @@ const YieldCurve = () => {
   
         
       },
+      {
+        date: "Spread",
+        oneMo:(Object.values(jsonFile)[tableindex]["1 Mo"]/Object.values(jsonFile)[init30day]["1 Mo"]-1).toFixed(3),
+        twoMo:(Object.values(jsonFile)[tableindex]["2 Mo"]/Object.values(jsonFile)[init30day]["2 Mo"]-1).toFixed(3),
+        threeMo:(Object.values(jsonFile)[tableindex]["3 Mo"]/Object.values(jsonFile)[init30day]["3 Mo"]-1).toFixed(3),
+        fourMo:(Object.values(jsonFile)[tableindex]["4 Mo"]/Object.values(jsonFile)[init30day]["4 Mo"]-1).toFixed(3),
+        sixMo:(Object.values(jsonFile)[tableindex]["6 Mo"]/Object.values(jsonFile)[init30day]["6 Mo"]-1).toFixed(3),
+        oneYr:(Object.values(jsonFile)[tableindex]["1 Yr"]/Object.values(jsonFile)[init30day]["1 Yr"]-1).toFixed(3),
+        twoYr:(Object.values(jsonFile)[tableindex]["2 Yr"]/Object.values(jsonFile)[init30day]["2 Yr"]-1).toFixed(3),
+        threeYr:(Object.values(jsonFile)[tableindex]["3 Yr"]/Object.values(jsonFile)[init30day]["3 Yr"]-1).toFixed(3),
+        fiveYr:(Object.values(jsonFile)[tableindex]["5 Yr"]/Object.values(jsonFile)[init30day]["5 Yr"]-1).toFixed(3),
+        sevenYr:(Object.values(jsonFile)[tableindex]["7 Yr"]/Object.values(jsonFile)[init30day]["7 Yr"]-1).toFixed(3),
+        tenYr:(Object.values(jsonFile)[tableindex]["10 Yr"]/Object.values(jsonFile)[init30day]["10 Yr"]-1).toFixed(3),
+        twentyYr:(Object.values(jsonFile)[tableindex]["20 Yr"]/Object.values(jsonFile)[init30day]["20 Yr"]-1).toFixed(3),
+        thirtyYr:(Object.values(jsonFile)[tableindex]["30 Yr"]/Object.values(jsonFile)[init30day]["30 Yr"]-1).toFixed(3),
+  
+        
+      },
     ];
 
     return data

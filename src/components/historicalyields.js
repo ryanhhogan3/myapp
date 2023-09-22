@@ -5,7 +5,7 @@ import jsonFile from './treasuryData.json'
 
 const Historicalyields = () => {
 
-  const [maturity, setmaturity] = useState("1 Mo")
+  const [maturity, setmaturity] = useState("1 Yr")
 
   
   
