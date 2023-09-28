@@ -1,11 +1,11 @@
-import "./App.css";
+import "../App.css";
 import Chart from "chart.js/auto";
-import Historicalyields from "./components/historicalyields";
-import Allyields from "./components/allyields";
-import Footer from "./components/footer";
-import Yieldcurve from "./components/yieldcurve";
+import Historicalyields from "../components/historicalyields";
+import Allyields from "../components/allyields";
+import Footer from "../components/footer";
+import Yieldcurve from "../components/yieldcurve";
 
-function App() {
+function Rates() {
   return (
     <div className="Test">
       <header className="App-header">
@@ -31,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default Rates;

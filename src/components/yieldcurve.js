@@ -1,10 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import jsonFile from "./treasuryData.json";
 import Table from "rc-table";
 
+// async function getTreasuryData() {
+//   const response = await fetch('https://flask-api-finlabs-b778fe863ba1.herokuapp.com/treasuries');
+//   const data = await response.json();
+
+//   return data
+// }
 const YieldCurve = () => {
   const [initdate, setDate] = useState(0);
+
+
+  const handleFetchData = async () => {
+    const response = await fetch('https://flask-api-finlabs-b778fe863ba1.herokuapp.com/treasuries');
+    const data = await response.json();
+    console.log(data);
+    return data
+  }
+
+  useEffect(() => {
+      handleFetchData();
+  },[])  
+
+
+
+  console.log("!!!!!!!!!!!!!!!#")
+  // console.log(data1)
+
+
 
   // table stuff ///////////////////////////////// table stuff //////////////
   const columns = [
@@ -87,6 +112,7 @@ const YieldCurve = () => {
       width: 100,
     },
   ];
+
 
 
 

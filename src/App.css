@@ -45,9 +45,8 @@ html{
   width: 100%;
   color: #ffffff;
   font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
-
   overflow: hidden;
   margin: auto;
 
@@ -74,6 +73,7 @@ html{
   background-color: #6e788c;
 }
 /* Table CSS end */
+
 
 @media screen and (max-width: 700px){
   .Charts{

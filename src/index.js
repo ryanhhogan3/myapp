@@ -1,8 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import Rates from './pages/Rates';
+import Home from './pages/Home';
+import Navbar from './pages/Navbar';
+import NoPage from './pages/NoPage';
+
+
+
+export default function App(){
+  return(
+    <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<Navbar />} >
+            <Route index element={<Home />} />
+        <Route path='/rates' element={<Rates />} />
+        <Route path='*' element={<NoPage />} />
+        </Route> 
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
