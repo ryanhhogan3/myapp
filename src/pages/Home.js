@@ -1,4 +1,5 @@
 import SearchBar from "../components/search";
+// import useFetch from "../hooks/useFetch"
 
 const Home = () => {
     // const getApi = () => {
