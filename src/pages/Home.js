@@ -1,4 +1,4 @@
-
+import SearchBar from "../components/search";
 
 const Home = () => {
     // const getApi = () => {
@@ -33,6 +33,7 @@ const Home = () => {
 
         <h1>Home</h1>
         <h2>Test</h2>
+        <SearchBar />
     </div>
     );
   };
