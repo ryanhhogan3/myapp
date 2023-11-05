@@ -7,6 +7,7 @@ import Rates from './pages/Rates';
 import Home from './pages/Home';
 import Navbar from './pages/Navbar';
 import NoPage from './pages/NoPage';
+import SearchResult from './pages/SearchResult';
 
 
 
@@ -17,6 +18,7 @@ export default function App(){
           <Route path='/' element={<Navbar />} >
             <Route index element={<Home />} />
         <Route path='/rates' element={<Rates />} />
+        <Route path='/searchResult' element={<SearchResult/>} />
         <Route path='*' element={<NoPage />} />
         </Route> 
       </Routes>

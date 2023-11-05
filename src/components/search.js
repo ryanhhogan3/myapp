@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, redirect } from "react";
+import { useNavigate } from "react-router";
 
 const SearchBar = () => {
 
     const [search, setSearch] = useState("")
-    const enter = () => {
-        alert(search)
-    }
+    const navigate = useNavigate();
+
+    // const enter = () => {
+    //     useNavigate("/searchResult",{state:{id:1}})
+    // }
     
     const change = event => {
         setSearch(event.target.value)
@@ -18,9 +21,9 @@ const SearchBar = () => {
             
         <input type="text" id="fname" name="fname" 
         placeholder="Search" value={search}
-        onChange={change}/>
-        <button onClick={enter}>Search</button>
-        
+        onChange={change}
+        />
+        <button onClick={()=>navigate("/searchResult")}>Search</button>
 
         </div>
     )
