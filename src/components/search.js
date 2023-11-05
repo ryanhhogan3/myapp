@@ -6,9 +6,13 @@ const SearchBar = () => {
     const [search, setSearch] = useState("")
     const navigate = useNavigate();
 
-    // const enter = () => {
-    //     useNavigate("/searchResult",{state:{id:1}})
-    // }
+
+    const handleKeyPress = (event) =>{
+        if (event.keyCode === 13 || event.which === 13) {
+            console.log('entered:'+search)
+            navigate("/searchResult/"+search, {replace:true})
+    }
+}
     
     const change = event => {
         setSearch(event.target.value)
@@ -21,9 +25,10 @@ const SearchBar = () => {
             
         <input type="text" id="fname" name="fname" 
         placeholder="Search" value={search}
-        onChange={change}
+        onChange={change} onKeyDown={handleKeyPress}
         />
-        <button onClick={()=>navigate("/searchResult")}>Search</button>
+        <button onClick={()=>navigate("/searchResult/"+search, {replace:true})}>Search</button>
+
 
         </div>
     )

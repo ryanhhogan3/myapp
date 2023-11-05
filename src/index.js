@@ -18,7 +18,7 @@ export default function App(){
           <Route path='/' element={<Navbar />} >
             <Route index element={<Home />} />
         <Route path='/rates' element={<Rates />} />
-        <Route path='/searchResult' element={<SearchResult/>} />
+        <Route path='/searchResult/:search' element={<SearchResult/>} />
         <Route path='*' element={<NoPage />} />
         </Route> 
       </Routes>
