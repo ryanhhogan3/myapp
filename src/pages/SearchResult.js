@@ -4,14 +4,19 @@ import { useParams } from 'react-router'
 
 export default function SearchResult() {
   const [price, setPrice] = useState("");
+  const [ytdreturn, setytdreturn] = useState("");
   let {search} = useParams();
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
   const fetchPrice = async (search) => {
     try{
       const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/currentPrice`);
       const data = await response.json();
       console.log(data);
       
+      await sleep(100)
       setPrice(data);
 
     }
@@ -21,8 +26,24 @@ export default function SearchResult() {
     }
   }
 
-  fetchPrice(search)
+  const fetchYTDreturn = async (search) => {
+    try{
+      const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/ytdreturn`);
+      const data = await response.json();
+      console.log(data);
+      
+      await sleep(100)
+      setytdreturn(data);
 
+    }
+    catch(e){
+      console.log(e)
+      setytdreturn(0);
+    }
+  }
+
+  fetchPrice(search)
+  fetchYTDreturn(search)
 
 
   return (
@@ -39,6 +60,8 @@ export default function SearchResult() {
         {search}
         <br></br>
         {price}
+        <br></br>
+        {ytdreturn}
       </h2>
 
 
