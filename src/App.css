@@ -6,7 +6,12 @@ html{
   text-align: center;
 }
 
-
+.stock-data-container{
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
