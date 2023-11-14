@@ -10,13 +10,12 @@ export default function SearchResult() {
 
   let {search} = useParams();
 
-  
   const fetchPrice = async (search) => {
     try{
       const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/currentPrice`);
       const data = await response.json();
 
-      
+      console.log('Fetched once')
       setPrice(data);
 
     }
@@ -28,12 +27,12 @@ export default function SearchResult() {
 
   const fetchYTDreturn = async (search) => {
     try{
-      const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/ytdreturn`);
+      const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/returns/ytd`);
       const data = await response.json();
-
+      
       
       setytdreturn(data);
-
+      
     }
     catch(e){
       console.log(e)
@@ -44,64 +43,63 @@ export default function SearchResult() {
     try{
       const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/volume/1y`);
       const data = await response.json();
-
+      console.log('ran')
+      
       
       setvolData1Y(data);
-
+      
     }
     catch(e){
       console.log(e)
       setvolData1Y(0);
     }
   }
-
-
-  
-
-  fetch1yVolume(search)
-
-  fetchPrice(search)
-  fetchYTDreturn(search)
-  // console.log(Object.values(Object.values(volData1Y)))
   
   
-  const getVolumeValues = () => {
-    let emptyArray = []
-    for(let k=0; k<Object.keys(volData1Y).length; k++){
-      let newVal = Object.values(volData1Y)[k].Volume
-      emptyArray.push(newVal)
-
+  // useEffect(() => {
+    // }, [])
+    
+    const getVolumeValues = () => {
+      let emptyArray = []
+      for(let k=0; k<Object.keys(volData1Y).length; k++){
+        let newVal = Object.values(volData1Y)[k].Volume
+        emptyArray.push(newVal)
+        
+      }
+      return emptyArray
     }
-    return emptyArray
-  }
-  // console.log(Object.values(volData1Y)[1].Volume)
-  let Volumes = getVolumeValues()
-  console.log('!!!!')
+    
+    
+    
+    const setChart = () => {
+      const data = {
+        labels: Object.keys(volData1Y),
+        datasets: [
+          {
+            label: "Volume",
+            backgroundColor: "rgb(255, 99, 132)",
+            borderColor: "rgb(255, 99, 132)",
+            data: Volumes,
+          },
+        ]
+      };
+      return data
+    }
+    
+    let Volumes = getVolumeValues()
+    useEffect(() => {
 
-  // console.log(Object.keys(volData1Y))
-  // console.log(Object.values(volData1Y)['Volume'])
-  // console.log(Object.values(volData1Y).Volume)
-  
-  const setChart = () => {
-    const data = {
-      labels: Object.keys(volData1Y),
-      datasets: [
-        {
-          label: "Volume",
-          backgroundColor: "rgb(255, 99, 132)",
-          borderColor: "rgb(255, 99, 132)",
-          data: Volumes,
-        },
-      ]
-    };
-    return data
-  }
-  
-
-
-  return (
+      fetch1yVolume(search);
+      fetchPrice(search);
+      fetchYTDreturn(search);
 
 
+    }, []);
+    
+    
+    return (
+      
+      
     <div>
       <SearchBar />
       <div className='stock-data-container'>
@@ -128,7 +126,6 @@ export default function SearchResult() {
 
 
       </div>
-    // </div>
 
   )
 }
