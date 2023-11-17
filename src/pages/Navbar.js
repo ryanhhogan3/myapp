@@ -2,7 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import './Navbar.css';
 
 
-
+// returns the navbar that displays home, rate pages
 const Navbar = () => {
   return (
     <>

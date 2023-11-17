@@ -5,6 +5,8 @@ import Allyields from "../components/allyields";
 import Footer from "../components/footer";
 import Yieldcurve from "../components/yieldcurve";
 
+
+// renders the rates page
 function Rates() {
   return (
     <div className="Test">
@@ -20,10 +22,8 @@ function Rates() {
           <Allyields />
         <Footer />
         </div>
-
         <br />
         <br></br>
-
         <br></br>
         <br></br>
       </div>
