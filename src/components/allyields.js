@@ -4,11 +4,6 @@ import jsonFile from './treasuryData.json'
 
 
 const Allyields = () => {
-
-
-
-  
-  
   const MaturityData = (maturity) => {
     let OneMonth = []
   

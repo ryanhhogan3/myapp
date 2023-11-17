@@ -1,17 +1,9 @@
 import SearchBar from "../components/search";
 // import useFetch from "../hooks/useFetch"
 
+// reutrns the home page for the entire app. Also includes the search bar component
 const Home = () => {
-    // const getApi = () => {
-    //     fetch("https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/aapl").then((response) => {
-    //         console.log(response);
-    //         response.json().then((data) => {
-    //             console.log(data);
-    //         });
-    //     });
-    // }
 
-    // getApi()
     async function loadNames() {
         const response = await fetch('https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/aapl');
         const names = await response.json();

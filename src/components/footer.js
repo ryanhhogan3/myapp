@@ -1,3 +1,4 @@
+// returns the footer for each page and includes datamarkets copywrite
 const Footer = () => {
     return(
         <div id="footer">
