@@ -2,8 +2,10 @@ import { React } from 'react'
 import { Line } from "react-chartjs-2";
 import jsonFile from './treasuryData.json'
 
-
+// function to visualize all yields on one single chart, taking the data from the json datafile
 const Allyields = () => {
+
+  // same function from the historicalyield js file
   const MaturityData = (maturity) => {
     let OneMonth = []
   
@@ -17,6 +19,7 @@ const Allyields = () => {
     return OneMonth
   
   }
+  // sets the data for each of the avalible maturities
   const setData = () =>{
    const data = {
     labels: Object.keys(jsonFile),
@@ -105,16 +108,10 @@ const Allyields = () => {
   }
 
 
-
+  // returns the line chart with the setdata function above
   return (
     <div id='chart-area'>
-
-      
-     
-          
-      
       <Line data={setData()} height={'300px'}/>
-      
     </div>
   );
 };

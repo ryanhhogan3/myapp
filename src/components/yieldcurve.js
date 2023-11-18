@@ -3,16 +3,11 @@ import { Line } from "react-chartjs-2";
 import jsonFile from "./treasuryData.json";
 import Table from "rc-table";
 
-// async function getTreasuryData() {
-//   const response = await fetch('https://flask-api-finlabs-b778fe863ba1.herokuapp.com/treasuries');
-//   const data = await response.json();
-
-//   return data
-// }
+// main function that creates yield curve and yeild table
 const YieldCurve = () => {
   const [initdate, setDate] = useState(0);
 
-
+  // api fetch function to fetch the treasury data 
   const handleFetchData = async () => {
     const response = await fetch('https://flask-api-finlabs-b778fe863ba1.herokuapp.com/treasuries');
     const data = await response.json();
@@ -20,15 +15,10 @@ const YieldCurve = () => {
     return data
   }
 
+  // use effect to call api once
   useEffect(() => {
       handleFetchData();
   },[])  
-
-
-
-  console.log("!!!!!!!!!!!!!!!#")
-  // console.log(data1)
-
 
 
   // table stuff ///////////////////////////////// table stuff //////////////
@@ -116,11 +106,14 @@ const YieldCurve = () => {
 
 
 
-
+  // sets the treasury table based on the table index parameter
   const setTable = (tableindex) => {
 
+    // sets the initial 30 day mark that cannot exceed the first data point in the treasury data to avoid
+    // takes the initdate useState variable and gets the date 30 days ago, not going beyond the start of the data set 
     let init30day = notOverMax(initdate);
 
+    // sets the data points to the object values and keys indexed by the tableindex paramete which is a date
     const data = [
       {
         date: Object.keys(jsonFile)[tableindex],
@@ -159,6 +152,7 @@ const YieldCurve = () => {
         
       },
       {
+        // calculates the spread of all the maturities for each tableindex (date) parameter
         date: "Spread",
         oneMo:(Object.values(jsonFile)[tableindex]["1 Mo"]-Object.values(jsonFile)[init30day]["1 Mo"]).toFixed(3),
         twoMo:(Object.values(jsonFile)[tableindex]["2 Mo"]-Object.values(jsonFile)[init30day]["2 Mo"]).toFixed(3),
@@ -184,7 +178,7 @@ const YieldCurve = () => {
 
   /////////////////////////////////////////////////////////////////////
 
-  // get maturities
+  // get maturities from the treasury json file with the date parameter as the indexer
   const getMasteryArray = (initdate) => {
     let initValues = Object.values(jsonFile);
     let dayOfArray = initValues[initdate];
@@ -192,6 +186,7 @@ const YieldCurve = () => {
     return dayOfArray;
   };
 
+  // calculates the max days the indexer can go back in time (date) to avoid 
   const notOverMax = (num) => {
     let max = 20;
     if (num + max < 159) {
@@ -200,7 +195,7 @@ const YieldCurve = () => {
       return 159;
     }
   };
-
+// sets the data of the chart with the initdate parameter (date) being used as the indexer for the entire json data file
   const setdata = (initdate) => {
     let init30day = notOverMax(initdate);
     const data = {
@@ -223,8 +218,10 @@ const YieldCurve = () => {
     return data;
   };
 
+  // sets the date constant to the keys of the json file
   const dates = Object.keys(jsonFile);
 
+  // returns the chart and table, and selector
   return (
     <div id="chart-area">
       <select>
