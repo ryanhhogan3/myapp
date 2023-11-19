@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 
 
-const StockChart = (props) => {
-    const [closePrices, setClosePrices] = useState("")
+const SecDataChart = (props) => {
+    const [secData, setSecData] = useState("")
 
     // calls the flask api for the close price data
     const fetchCloseData = async (search) => {
         console.log('ran close api call')
         try{
-          const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/price/1y`);
+          const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/annual/revenue`);
           const data = await response.json();
-          setClosePrices(data);
+          setSecData(data);
         }
         catch(e){
           console.log(e)
-          setClosePrices(0);
+          setSecData(0);
         }
       }
 
@@ -27,17 +27,21 @@ const StockChart = (props) => {
       },
        [props.stock])
 
-    const values = Object.values(closePrices).map(({Close}) => Close)
-    // console.log(values)
-    
+      const values = Object.values(secData).map(({val}) => val)
+        // console.log(values)
+      console.log(values)
+    //console.log(Object.values(closePrices))
+
+    // console.log((closePrices))
+
 
     // sets the chart with the close price data
     const setChart = () => {
         const data = {
-          labels: Object.keys(closePrices),
+          labels: Object.keys(secData),
           datasets: [
             {
-              label: "Price",
+              label: "Revenue",
               backgroundColor: "rgb(255, 99, 132)",
               borderColor: "rgb(255, 99, 132)",
               data: values,
@@ -53,14 +57,14 @@ const StockChart = (props) => {
 
     <div className="stock-chart">
         <p>
-            Revenue Chart
+            Stock Chart
             <br></br>
             {props.stock}
             <br></br>
-            <Line data={setChart()} height={props.height}/>
+            <Bar data={setChart()} height={props.height}/>
         </p>
     </div>
     )
 }
 
-export default StockChart
+export default SecDataChart

@@ -4,6 +4,7 @@ import { Bar } from "react-chartjs-2";
 import { useParams } from 'react-router'
 import StockChart from '../components/stockpricechart';
 import Footer from '../components/footer';
+import SecDataChart from '../components/secvizuals';
 
 
 //notes: in the future maybe think about breaking these api calls and functions and charts into seperate microservices within the component, thus calling these components inside the search result render with the search parameter as input
@@ -112,7 +113,7 @@ export default function SearchResult() {
     return (
     <div>
       <SearchBar />
-      <div className='stock-data-container'>
+        <div className='stock-data-intro'>
       <h2>
         {search}
         <br></br>
@@ -120,10 +121,14 @@ export default function SearchResult() {
         <br></br>
         {ytdreturn}%
         <br></br>
+        
       </h2>
+      </div>
+      <div className='stock-data-container'>
         <div className="Charts">
-          <Bar data={setChart()} />
           <StockChart stock={search} />
+          <SecDataChart stock={search}/>
+          <Bar data={setChart()} />
         </div>
       </div>
       <Footer />
