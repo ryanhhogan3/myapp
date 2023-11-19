@@ -10,7 +10,7 @@ const StockChart = (props) => {
     const fetchCloseData = async (search) => {
         console.log('ran close api call')
         try{
-          const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}`);
+          const response = await fetch(`https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/price/1y`);
           const data = await response.json();
           setClosePrices(data);
         }
@@ -27,7 +27,11 @@ const StockChart = (props) => {
       },
        [props.stock])
 
-    console.log((closePrices))
+    const values = Object.values(closePrices).map(({Close}) => Close)
+    console.log(values)
+    //console.log(Object.values(closePrices))
+
+    // console.log((closePrices))
 
 
     // sets the chart with the close price data
@@ -39,7 +43,7 @@ const StockChart = (props) => {
               label: "Price",
               backgroundColor: "rgb(255, 99, 132)",
               borderColor: "rgb(255, 99, 132)",
-              data: 1,
+              data: values,
             },
           ]
         };
@@ -56,7 +60,7 @@ const StockChart = (props) => {
             <br></br>
             {props.stock}
             <br></br>
-            <Line data={setChart()} />
+            <Line data={setChart()} height={props.height}/>
         </p>
     </div>
     )
