@@ -46,8 +46,24 @@ const SecDataChart = (props) => {
               borderColor: "rgb(255, 99, 132)",
               data: values,
             },
-          ]
-        };
+          ],
+        
+        options: {
+          scales: {
+            x: {
+              grid: {
+                display: false,
+              }
+            },
+            y: {
+              grid: {
+                display: false
+              }
+            }
+          }
+        }
+      }
+    
         
         return data
       }
@@ -58,7 +74,7 @@ const SecDataChart = (props) => {
 
     <div className="stock-chart">
         <p>
-            Stock Chart
+            Revenue 
             <br></br>
             {props.stock}
             <br></br>

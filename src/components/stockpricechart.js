@@ -41,9 +41,27 @@ const StockChart = (props) => {
               backgroundColor: "rgb(255, 99, 132)",
               borderColor: "rgb(255, 99, 132)",
               data: values,
+              pointRadius:0,
+
             },
-          ]
-        };
+            
+          ],
+          options: {
+            scales: {
+              x: {
+                grid: {
+                  display: false,
+                }
+              },
+              y: {
+                grid: {
+                  display: false
+                }
+              }
+            }
+          }
+        }
+        
         return data
       }
 
@@ -53,7 +71,7 @@ const StockChart = (props) => {
 
     <div className="stock-chart">
         <p>
-            Revenue Chart
+            Stock Price Chart
             <br></br>
             {props.stock}
             <br></br>

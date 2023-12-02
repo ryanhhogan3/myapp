@@ -112,8 +112,11 @@ export default function SearchResult() {
     // returns the stock chart compoennts which takes in the search 'property' / use state varibale
     return (
     <div>
-      <SearchBar />
+      
+
         <div className='stock-data-intro'>
+          
+      <SearchBar />
       <h2>
         {search}
         <br></br>
@@ -122,16 +125,20 @@ export default function SearchResult() {
         {ytdreturn}%
         <br></br>
         
+        
       </h2>
       </div>
+
+
       <div className='stock-data-container'>
         <div className="Charts">
           <StockChart stock={search} />
           <SecDataChart stock={search}/>
           <Bar data={setChart()} />
+      <Footer />
         </div>
       </div>
-      <Footer />
       </div>
+      
   )
 }

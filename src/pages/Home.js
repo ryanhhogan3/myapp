@@ -5,6 +5,7 @@ import StockChart from "../components/stockpricechart";
 const Home = () => {
     return( 
     <div>
+        <div className="homepage">
         <h1>Home</h1>
         <SearchBar />
         <br></br>
@@ -12,6 +13,7 @@ const Home = () => {
 
         <StockChart stock={'SPY'}  />
         </div>
+    </div>
     </div>
     );
   };
