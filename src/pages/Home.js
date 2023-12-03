@@ -1,5 +1,10 @@
 import SearchBar from "../components/search";
 import StockChart from "../components/stockpricechart";
+import ReturnsTable from '../components/returnstable';
+
+import jsonData from "./test.json"
+
+console.log(jsonData)
 
 // reutrns the home page for the entire app. Also includes the search bar component
 const Home = () => {
@@ -12,6 +17,7 @@ const Home = () => {
         <div className="Charts">
 
         <StockChart stock={'SPY'}  />
+        <ReturnsTable data={jsonData} />   
         </div>
     </div>
     </div>

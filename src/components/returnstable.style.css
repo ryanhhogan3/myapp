@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Dark background color */
+  color: #fff; /* Text color */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #61dafb; /* Header text color */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #1e1e1e; /* Table background color */
+  border: 1px solid #333;
+  margin-bottom: 5%;
+}
+
+thead th,
+tbody td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #333;
+  min-width: 60px; /* Set a fixed width for each tile */
+}
+
+thead th {
+  background-color: #333; /* Header background color */
+}
+
+tbody td {
+  background-color: #292929; /* Default body cell background color */
+}
+
+/* Set background color based on return value */
+tbody td:empty {
+  background-color: #006400; /* Dark green for positive returns */
+}
+
+tbody td:not(:empty) {
+  background-color: #8b0000; /* Dark red for negative returns */
+}
+
+/* Style for "Annual Return" cells */
+tbody td.annual-return {
+  background-color: #2E2E2E; /* Darker background color for Annual Return cells */
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Remove background color for month labels in tbody */
+tbody td:first-child {
+  background-color: transparent;
+}
