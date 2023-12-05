@@ -61,3 +61,21 @@ tbody td.annual-return {
 tbody td:first-child {
   background-color: transparent;
 }
+
+/* Media query for screens with a maximum width of 600 pixels (adjust as needed) */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  table {
+    margin-top: 10px;
+    margin-bottom: 2%;
+  }
+
+  thead th,
+  tbody td {
+    padding: 8px;
+    min-width: 40px;
+  }
+}
