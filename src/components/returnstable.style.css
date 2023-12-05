@@ -62,13 +62,14 @@ tbody td:first-child {
   background-color: transparent;
 }
 
-/* Media query for screens with a maximum width of 600 pixels (adjust as needed) */
+/* Media query for screens with a maximum width of 600 pixels */
 @media (max-width: 600px) {
   .container {
     padding: 10px;
   }
 
   table {
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 2%;
   }
@@ -76,6 +77,6 @@ tbody td:first-child {
   thead th,
   tbody td {
     padding: 8px;
-    min-width: 40px;
+    min-width: unset;
   }
 }

@@ -1,0 +1,15 @@
+.Index-charts {
+    display: flex;
+    justify-content: space-between; /* Adjust this property as needed */
+    align-items: center; /* Adjust this property as needed */
+    flex-wrap: wrap; /* Allows the items to wrap to the next line if there's not enough space */
+  }
+  
+  /* Adjust the width and other styles for each StockChart */
+  .Index-charts .StockChart {
+    width: calc(25% - 10px); /* Adjust the width and consider margins between charts */
+    margin-bottom: 10px; /* Adjust the margin between charts */
+  }
+  .Index-charts .StockChart .x-axis-label {
+    display: none;
+  }
