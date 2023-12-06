@@ -33,49 +33,66 @@ const StockChart = (props) => {
 
     // sets the chart with the close price data
     const setChart = () => {
+      const labels = Object.keys(closePrices).map(date => new Date(date).toLocaleString('default', { month: 'short' }));
         const data = {
-          labels: Object.keys(closePrices),
+          labels: labels,
+          // Object.keys(closePrices)
           datasets: [
             {
               label: "Price",
-              backgroundColor: "rgb(255, 99, 132)",
-              borderColor: "rgb(255, 99, 132)",
+              backgroundColor: "rgba(75, 192, 192, 0.2)", // Use a color that suits your dark theme
+              borderColor: "rgba(75, 192, 192, 1)", // Use a color that suits your dark theme
               data: values,
               pointRadius:0,
 
             },
             
           ],
-          options: {
-            scales: {
-              x: {
-                grid: {
-                  display: false,
-                }
-              },
-              y: {
-                grid: {
-                  display: false
-                }
-              }
-            }
-          }
-        }
+        };
         
         return data
       }
+      // Add global styles for a dark and modern theme
+      const options = {
+        plugins: {
+          legend: {
+            display: false, // Set display to false to hide the legend
+          },
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: 'rgba(255, 255, 255, 0.7)', // X-axis tick color
+            },
+          },
+          y: {
+            grid: {
+              display: true,
+            },
+            ticks: {
+              color: 'rgba(255, 255, 255, 0.7)', // Y-axis tick color
+            },
+          },
+        },
+      }
+      
+
 
       // returns the stock chart and the ticker searched for
     return(
 
 
     <div className="stock-chart">
+           
         <p>
-            Stock Price Chart
+            
             <br></br>
             {props.stock}
             <br></br>
-            <Line data={setChart()} height={props.height}/>
+            <Line data={setChart()} height={props.height} options={options}/>
         </p>
     </div>
     )

@@ -19,7 +19,7 @@ const Home = () => {
         <div className="Index-charts">
   <StockChart stock={'SPY'} className="StockChart" />
   <StockChart stock={'QQQ'} className="StockChart" />
-  <StockChart stock={'SCHD'} className="StockChart" />
+  <StockChart stock={'BTC-USD'} className="StockChart" />
   <StockChart stock={'VCIT'} className="StockChart" />
   <StockChart stock={'VB'} className="StockChart" />
   <StockChart stock={'ARKK'} className="StockChart" />
