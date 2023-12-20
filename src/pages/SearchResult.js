@@ -5,6 +5,9 @@ import { useParams } from 'react-router'
 import StockChart from '../components/stockpricechart';
 import Footer from '../components/footer';
 import SecDataChart from '../components/secvizuals';
+import ReturnsTable from '../components/returnstable';
+import './SearchResults.style.css'
+
 
 
 //notes: in the future maybe think about breaking these api calls and functions and charts into seperate microservices within the component, thus calling these components inside the search result render with the search parameter as input
@@ -111,34 +114,52 @@ export default function SearchResult() {
     // returns the volume bar chart which calls the set chart function
     // returns the stock chart compoennts which takes in the search 'property' / use state varibale
     return (
-    <div>
       
-
-        <div className='stock-data-intro'>
-          
-      <SearchBar />
-      <h2>
-        {search}
-        <br></br>
+      <div className="homepage">
+        
+        <SearchBar />
+  <div class="container">
+  <div class="above-columns">
+    <div class="column">
+      <h2>{search}</h2>
+      <p><br></br>
         {price}
         <br></br>
         {ytdreturn}%
-        <br></br>
-        
-        
-      </h2>
-      </div>
+        <br></br></p>
+    </div>
 
+    <div class="column">
+      <h2>Column 2 Above</h2>
+      <StockChart stock={search} />
+    </div>
+  </div>
 
-      <div className='stock-data-container'>
-        <div className="Charts">
-          <StockChart stock={search} />
-          <SecDataChart stock={search}/>
+  <div class="below-columns">
+    <div class="column">
+      <h2>Column 1 Below</h2>
           <Bar data={setChart()} />
-      <Footer />
-        </div>
-      </div>
-      </div>
-      
+      <p>Some content here.</p>
+    </div>
+
+    <div class="column">
+      <h2>Column 2 Below</h2>
+      <p>Some content here.</p>
+    </div>
+
+    <div class="column">
+      <h2>Column 3 Below</h2>
+      <p>Some content here.</p>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+
+       
   )
 }

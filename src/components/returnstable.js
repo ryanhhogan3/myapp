@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./returnstable.style.css"
 
-const ReturnsTable = ({ data }) => {
-    const uniqueYears = [...new Set(Object.values(data).map(item => item.Start.slice(-4)))];
+const ReturnsTable = (props) => {
+  console.log(props.search);
+  const [fiveYearsReturns, setFiveYearsReturns] = useState([]);
+
+  const fetchFiveYearsReturns = async (search) => {
+    console.log("ran 5y api call");
+    try {
+      const response = await fetch(
+        `https://flask-api-finlabs-b778fe863ba1.herokuapp.com/Stock/${search}/returns/monthly/5y`
+      );
+      const data = await response.json();
+      setFiveYearsReturns(data);
+    } catch (e) {
+      console.error(e);
+      // Handle the error accordingly, you might want to set the state to an empty array or handle it differently.
+    }
+  }
+
+  useEffect(() => {
+    console.log("useEffect called");
+    fetchFiveYearsReturns(props.stock);
+  }, [props.stock]);
+
+  const uniqueYears = [...new Set(Object.values(fiveYearsReturns).map(item => item?.Start?.slice(-4)))];
 
   const getColorForReturn = (value) => {
     if (value > 0) {
@@ -14,10 +36,9 @@ const ReturnsTable = ({ data }) => {
     }
   };
 
-  // Function to calculate the annual sum for each year
   const calculateAnnualSum = (year) => {
-    return Object.values(data)
-      .filter((item) => item.Start.slice(-4) === year)
+    return Object.values(fiveYearsReturns)
+      .filter((item) => item?.Start?.slice(-4) === year)
       .reduce((sum, item) => sum + item.Returns, 0);
   };
 
@@ -38,8 +59,8 @@ const ReturnsTable = ({ data }) => {
             <tr key={monthIndex}>
               <td>{new Date(2000, monthIndex).toLocaleString('default', { month: 'long' })}</td>
               {uniqueYears.map((year) => {
-                const matchingData = Object.values(data).find(
-                  (item) => item.Start.slice(-4) === year && new Date(item.Start).getMonth() === monthIndex
+                const matchingData = Object.values(fiveYearsReturns).find(
+                  (item) => item?.Start?.slice(-4) === year && new Date(item.Start).getMonth() === monthIndex
                 );
 
                 return (
@@ -53,10 +74,8 @@ const ReturnsTable = ({ data }) => {
               })}
             </tr>
           ))}
-          {/* Annual Return row */}
           <tr>
-          
-          <td>Annual Return</td>
+            <td>Annual Return</td>
             {uniqueYears.map((year) => (
               <td key={`annual-${year}`} className="annual-return">
                 {calculateAnnualSum(year).toFixed(4)}

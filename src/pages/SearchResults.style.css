@@ -1,0 +1,48 @@
+.container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    /* margin: 0 auto; Center the container on the page */
+  }
+ 
+ 
+ /* Style for the columns above */
+ .above-columns {
+    width: 100%;
+    flex-grow: 3;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .above-columns .column {
+    flex-grow: 3;
+    box-sizing:content-box;
+    padding: 10px;
+  }
+
+  /* Style for the columns below */
+  .below-columns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .below-columns .column {
+    flex-grow: 3;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  /* Responsive styling: Adjust layout for smaller screens */
+  @media (max-width: 768px) {
+    .above-columns, .below-columns {
+      flex-direction: column; /* Stack columns for smaller screens */
+    }
+
+    .above-columns .column, .below-columns .column {
+      flex: 100%; /* Full width for smaller screens */
+    }
+  }
+

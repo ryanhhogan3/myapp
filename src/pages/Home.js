@@ -24,7 +24,7 @@ const Home = () => {
   <StockChart stock={'VB'} className="StockChart" />
   <StockChart stock={'ARKK'} className="StockChart" />
 </div>
-        <ReturnsTable data={jsonData} />   
+        <ReturnsTable stock={'SPY'} />   
         </div>
     </div>
     </div>
