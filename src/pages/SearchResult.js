@@ -96,6 +96,34 @@ export default function SearchResult() {
       };
       return data
     }
+
+    // Add global styles for a dark and modern theme
+  const options = {
+    plugins: {
+      legend: {
+        display: false, // Set display to false to hide the legend
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+    
+        },
+        ticks: {
+          color: "rgba(255, 255, 255, 0.7)", // X-axis tick color
+        },
+      },
+      y: {
+        grid: {
+          display: true,
+        },
+        ticks: {
+          color: "rgba(255, 255, 255, 0.7)", // Y-axis tick color
+        },
+      },
+    },
+  };
     
     // assigns the Volumes variable to the 'getolumeValues' function, returning only the volume data points
     let Volumes = getVolumeValues()
@@ -131,15 +159,18 @@ export default function SearchResult() {
 
     <div class="column">
       <h2>Column 2 Above</h2>
-      <StockChart stock={search} />
+      <StockChart stock={search}/>
+      <div className='volume'>
+
+          <Bar data={setChart()} options={options} width={'800'}/>
+      </div>
     </div>
   </div>
 
   <div class="below-columns">
     <div class="column">
-      <h2>Column 1 Below</h2>
-          <Bar data={setChart()} />
-      <p>Some content here.</p>
+      <h2>Returns Table</h2>
+      <ReturnsTable stock={search} />   
     </div>
 
     <div class="column">
