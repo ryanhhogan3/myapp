@@ -153,7 +153,6 @@ export default function SearchResult() {
       <p><br></br>
         {price}
         <br></br>
-        {ytdreturn}%
         <br></br></p>
     </div>
 
