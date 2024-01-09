@@ -55,3 +55,96 @@
     }
   }
 
+
+
+
+/* This is an import from App.css since we used to reference the css in App.css within stocksearch.js, the code reference is pasted below to enable the stock search page to continue working. Will need to untangle this in the future */
+
+
+
+
+.stock-search {
+  color: rgba(255, 255, 255, 0.815);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+
+.stock-data-intro {
+  color: rgba(255, 255, 255, 0.815);
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.App-header {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.Yield-Table{
+  display: flex;
+  justify-content: center;
+}
+
+.Chart-container{
+  display: flex;
+  justify-content: center;
+}
+.Charts{
+  color: white;
+  text-align: center;
+  
+  flex-direction: column;
+  width: 60%;
+}
+
+
+/* Tabel CSS */
+.Yield-Table{
+  border-collapse: collapse;
+  width: 100%;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  
+  margin: auto;
+
+  margin-bottom: 50px;
+  text-align: center;
+
+}
+.Yield-Table th{
+  /* background-color: #282c34; */
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  text-transform: uppercase;
+  
+}
+
+.Yield-Table tr{
+  background-color: #282c34;
+}
+
+
+
+.Yield-Table td:hover{
+  background-color: #6e788c;
+}
+/* Table CSS end */
+
+
+@media screen and (max-width: 700px){
+  .Charts{
+    width: 90%;
+  }
+}
